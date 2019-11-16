@@ -1,0 +1,18 @@
+image: java:8-jdk
+
+stages:
+  - build
+  - execute
+  
+build:
+  image: java:8-jdk
+  stage: build
+  script: "/usr/lib/jvm/java-8-openjdk-amd64/bin/javac src/javasample/Hello.java"
+  artifacts:
+    paths:
+      - /HelloGitlab.*
+
+execute:
+  stage: execute
+  script: "/usr/lib/jvm/java-8-openjdk-amd64/bin/java src/javasample/Hello"
+  
